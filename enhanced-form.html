@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Demonstration of HTML5 form features with built-in validation">
+    <title>Enhanced HTML5 Form with Validation</title>
+</head>
+<body>
+    <header>
+        <h1>Enhanced HTML5 Form</h1>
+        <p>A comprehensive demonstration of semantic HTML5 features with built-in validation</p>
+        
+        <nav aria-label="Main navigation">
+            <h2>Page Contents</h2>
+            <ul>
+                    <li><a href="#pricing">Service Plans</a></li>
+                <li><a href="#media">Media Examples</a></li>
+                <li><a href="#registration">Registration Form</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="features" aria-labelledby="features-heading">
+                
+        <section id="pricing" aria-labelledby="pricing-heading">
+        <h2 id="pricing-heading">Service Plans</h2>
+        
+        <table>
+        <h2>Monthly subscription options</h2>
+            <table border="5">
+                <thead>
+                <tr>
+                    <th scope="col">Plan</th>
+                    <th scope="col">Features</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+             <tbody>
+                <tr>
+                    <th scope="row">Basic</th>
+                    <td>
+                        <ul>
+                            <li>10GB Storage</li>
+                            <li>Email Support</li>
+                            <li>Basic Analytics</li>
+                        </ul>
+                    </td>
+                    <td>$9.99/month</td>
+                </tr>
+                <tr>
+                    <th scope="row">Professional</th>
+                    <td>
+                        <ul>
+                            <li>50GB Storage</li>
+                            <li>Priority Support</li>
+                            <li>Advanced Analytics</li>
+                            <li>API Access</li>
+                        </ul>
+                    </td>
+                    <td>$29.99/month</td>
+                </tr>
+            </tbody>
+
+            </table>
+    </section>
+
+    <section id="media" aria-labelledby="media-heading">
+        <h2 id="media-heading">Media Examples</h2>
+        
+        <article aria-labelledby="image-heading">
+              <img src="./image.webp" alt="image will be added later"
+                width="300" height="200" loading="lazy">
+            </article>
+        
+        <article aria-labelledby="audio-heading">
+            <h3 id="audio-heading">Audio Player</h3>
+            <audio autoplay loop controls aria-label="Sample audio track">
+                <source src="./audio.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+         
+        </article>
+        <article aria-labelledby="video-heading">
+            <h3 id="video-heading">Video Player</h3>
+            <video controls autoplay loop aria-label="Sample video">
+                <source src="./video.mp4"type="video/mp4" width="40" height="60">
+                Your browser does not support the audio element.
+            </video>
+         
+        </article>
+    </section>
+
+    <section id="registration" aria-labelledby="registration-heading">
+        <h2 id="registration-heading">Registration Form</h2>
+        
+        <form id="signup" method="post" novalidate aria-labelledby="registration-heading">
+            <fieldset aria-labelledby="account-info-heading">
+                <legend id="account-info-heading">Account Information</legend>
+                
+                <div class="form-group required">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required
+                           minlength="4" maxlength="20" pattern="[a-zA-Z0-9_]+"
+                           placeholder="4-20 characters (letters, numbers, underscores)"
+                           autocomplete="username" aria-required="true">
+                    <p class="error-message" id="username-error" aria-live="polite"></p>
+                </div>
+                
+                <div class="form-group required">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required
+                           placeholder="your.email@example.com"
+                           autocomplete="email" aria-required="true">
+                    <p class="error-message" id="email-error" aria-live="polite"></p>
+                </div>
+                
+                <div class="form-group required">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required
+                           minlength="8" placeholder="Minimum 8 characters"
+                           autocomplete="new-password" aria-required="true">
+                    <p class="error-message" id="password-error" aria-live="polite"></p>
+                </div>
+                
+                <div class="form-group required">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required
+                           placeholder="Re-enter your password"
+                           autocomplete="new-password" aria-required="true">
+                    <p class="error-message" id="confirm-password-error" aria-live="polite"></p>
+                </div>
+            </fieldset>
+            
+            <fieldset aria-labelledby="personal-info-heading">
+                <legend id="personal-info-heading">Personal Information</legend>
+                
+                <div class="form-group required">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" name="full-name" required
+                           placeholder="First and last name"
+                           autocomplete="name" aria-required="true">
+                    <p class="error-message" id="name-error" aria-live="polite"></p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="birthdate">Date of Birth</label>
+                    <input type="date" id="birthdate" name="birthdate"
+                           min="1900-01-01" max="2020-01-01"
+                           autocomplete="bday">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone"
+                           pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                           placeholder="123-456-7890"
+                           autocomplete="tel">
+                    <p class="error-message" id="phone-error" aria-live="polite"></p>
+                </div>
+                
+                <div class="form-group required">
+                    <label for="country">Country</label>
+                    <select id="country" name="country" required
+                            autocomplete="country" aria-required="true">
+                        <option value="">-- Select Country --</option>
+                        <option value="US">United States</option>
+                        <option value="CA">Canada</option>
+                        <option value="UK">United Kingdom</option>
+                        <option value="AU">Australia</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </fieldset>
+            
+            <fieldset aria-labelledby="preferences-heading">
+                <legend id="preferences-heading">Preferences</legend>
+                
+                <div class="form-group">
+                    <fieldset>
+                        <legend>Notification Preferences</legend>
+                        
+                        <div>
+                            <input type="checkbox" id="newsletter" name="notifications" value="newsletter" checked>
+                            <label for="newsletter" class="inline-label">Email Newsletter</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="promotions" name="notifications" value="promotions">
+                            <label for="promotions" class="inline-label">Special Promotions</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="updates" name="notifications" value="updates">
+                            <label for="updates" class="inline-label">Product Updates</label>
+                        </div>
+                    </fieldset>
+                </div>
+                
+                <div class="form-group">
+                    <label for="theme">Theme Color</label>
+                    <input type="color" id="theme" name="theme" value="#3498db">
+                </div>
+                
+                <div class="form-group">
+                    <label for="volume">Notification Volume</label>
+                    <input type="range" id="volume" name="volume" min="0" max="100" value="50">
+                </div>
+            </fieldset>
+            
+            <div class="form-group">
+                <label for="comments">Additional Comments</label>
+                <textarea id="comments" name="comments" rows="4"
+                          placeholder="Any special requests or comments..."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="referral-code">Referral Code (if applicable)</label>
+                <input type="text" id="referral-code" name="referral-code"
+                          placeholder="Enter referral code if you have one"
+                          pattern="[A-Z0-9]{6}" maxlength="6">
+            </div>
+            
+            <div class="form-group">
+                <button type="submit">Create Account</button>
+                <button type="reset">Reset Form</button>
+            </div>
+        </form>
+    </section>
+</body>
+</html>
